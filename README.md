@@ -234,3 +234,24 @@ So, let's get started.
    Some query optimizations can be done client-side, like debouncing requests and caching results. In some cases, it is possible to know that a search will return a subset of already cached results, and the Solarflare client can return results immediately. Or we can render results from the cache while waiting for the server to respond with a (possibly) more up to date result set. Buttery smooth grids across millions of rows, with minimal work.
 
    You bring Postgres, we give you an interactive data grid.
+
+### Real-time
+
+You can pass the `subscribe` prop to the `useTable` hook to get real-time updates.
+
+```jsx
+const {
+  data,
+  loading,
+  facets,
+  filters,
+  setFilters,
+  search,
+  setSearch,
+  sort,
+  setSort,
+  pagination,
+} = useTable("logs-table", { subscribe: true });
+```
+
+In this mode, the current sort, filter and search state is maintained on a stateful connection at the Solarflare service. Each time new rows are ingested from Postgres, the Solarflare service determines which currently connected-clients need that row and sends a light delta update to the client. You don't have to do anything except pass `subscribe: true` to the hook.
