@@ -101,8 +101,6 @@ So, let's get started.
    name = "inputs"
    pg_column = "inputs"
    search = true
-   sorting = null
-   filter = null
 
    [[columns]]
 
@@ -110,8 +108,6 @@ So, let's get started.
    name = "messages"
    pg_column = "messages"
    search = true
-   sorting = null
-   filter = null
 
    [[columns]]
    name = "timestamp"
