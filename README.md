@@ -229,9 +229,11 @@ So, let's get started.
 
    When you call `setSearch`, the Solarflare client requests the new data from the server and the `data` object is updated with the new data, and your component re-renders.
 
-   Some query optimizations can be done client-side, like debouncing requests and caching results. In some cases, it is possible to know that a search will return a subset of already cached results, and the Solarflare client can return results immediately. Or we can render results from the cache while waiting for the server to respond with a (possibly) more up to date result set. Buttery smooth grids across millions of rows, with minimal work.
+   Some query optimizations can be done client-side, like debouncing requests and caching results. In some cases, it is possible to know that a search will return a subset of already cached results, and the Solarflare client can return results immediately. Or we can render results from the cache while waiting for the server to respond with a (possibly) more up to date result set.
 
-   You bring Postgres, we give you an interactive data grid.
+   **Buttery smooth grids across millions of rows. Infintely explorable with filters, searches, sorting. Almost no work to implement and maintain.**
+
+   **_You bring Postgres, we give you an interactive data grid._**
 
 ### Real-time
 
