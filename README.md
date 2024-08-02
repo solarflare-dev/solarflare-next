@@ -17,7 +17,7 @@ Each column is sortable, filterable and some columns are searchable. Achieving a
 
    Additionally, you'll need logic to retrieve and maintain the categorical facets for filtering and searching. You might need to introduce polling or 'push' based logic to keep the data on the user's screen up-to-date.
 
-2. Use a service like Algolia, Elasticsearch or Typesense to index your data and provide a search API. Many of these services get expensive very quickly, charging by the search (i.e. every time a user loads your page or manipulates the table controls) and you still don't get real-time updates. You also have to manage syncing of data into the search service.
+2. Use a service like Algolia, Elasticsearch or Typesense to index your data and provide a search API. Managed services like Algolia can get expensive very quickly, charging by the search (i.e. every time a user loads your page or manipulates the table controls). Elasticsearch and Typesense provide fantastic indexing capabilities, but they don't provide an end-to-end data pipeline from Postgres to React, leaving you writing glue code to handle ingestion, indexing and a search API for your app. In all cases, you have to manage syncing of data into the search service and you don't get real-time query subscriptions.
 
 3. Solarflare.
 
@@ -36,12 +36,14 @@ Solarflare is a blazing fast, native binary that connects to your Postgres datab
 
 ## Getting Started
 
-Let's use Solarflare to take the Humanloop Logs table to the next-level. We're trying to solve these problems:
+Let's use Solarflare take the Acme Devtools 'Logs' table to the next level. Acme already has a Logs table, implemented with a Python backend connected directly to the Postgres primary.
+
+We're trying to solve these problems:
 
 - High load on primary DB
 - Slow page loads
 - No real-time updates, except brittle bespoke polling patterns
-- Faceted search hard to maintain with custom endpoints like `/datapoints-categorical-column-options`
+- Faceted search hard to maintain with custom endpoints like `/logs-categorical-column-options`
 - Column filtering, searching, sorting also hard to maintain, with custom Python logic required to support each new column
 
 So, let's get started.
@@ -160,7 +162,7 @@ So, let's get started.
    For frontend development, Solarflare provides a fully-typed experience based on the configuration in your solarflare.toml and the database schema.
 
    ```bash
-   $ solarflare codegen --outdir ~/humanloop/frontend/src/types
+   $ solarflare codegen --outdir ~/acme/frontend/src/types
    ```
 
    This places a `solarflare.d.ts` file in your frontend types directory, which we'll import in the next step.
