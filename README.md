@@ -31,7 +31,7 @@ Solarflare is a blazing fast, native binary that connects to your Postgres datab
 - **Faceted Search:** Solarflare automatically maintains categorical facets, allowing the React component to render rich, relevant filter options that give your users a powerful data exploration experience.
 - **Real-Time Updates:** Solarflare sends delta updates to your users in real-time, ensuring that the data on their screen is always up-to-date.
 - **Blazing Fast:** Solarflare builds on the latest indexing & search technology written in Rust. Slow page loads based on heavy SQL queries are a thing of the past.
-- **Extensible Declartive Configuration:** Solarflare allows you to declaratively define the columns, filters and search fields you want to enable. You can also define custom filters and search fields.
+- **Extensible Declarative Configuration:** Solarflare allows you to declaratively define the columns, filters and search fields you want to enable. You can also define custom filters and search fields.
 - **In-built Transport Protocol:** Network transport is handled all the way from the Postgres database to the React component, ensuring that you don't have to worry about the details of WebSockets, polling or data formats.
 
 ## Getting Started
